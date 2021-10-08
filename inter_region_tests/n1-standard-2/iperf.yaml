@@ -1,0 +1,24 @@
+#iperf
+
+iperf:
+  flag_matrix: inter_region
+  flag_matrix_filters:
+    inter_region: "zones < extra_zones"
+  flag_matrix_defs:
+    inter_region:
+      zones: [asia-east1-b,asia-east2-a,asia-northeast1-b,asia-northeast2-a,asia-northeast3-a,asia-south1-c,asia-south2-a,asia-southeast1-b,asia-southeast2-a,australia-southeast1-b,australia-southeast2-a,europe-central2-a,europe-north1-a,europe-west1-b,europe-west2-c,europe-west3-c,europe-west4-a,europe-west6-a,northamerica-northeast1-a,northamerica-northeast2-a,southamerica-east1-b,us-central1-c,us-east1-b,us-east4-c,us-west1-b,us-west2-a,us-west3-a,us-west4-a]
+      extra_zones: [asia-east1-b,asia-east2-a,asia-northeast1-b,asia-northeast2-a,asia-northeast3-a,asia-south1-c,asia-south2-a,asia-southeast1-b,asia-southeast2-a,australia-southeast1-b,australia-southeast2-a,europe-central2-a,europe-north1-a,europe-west1-b,europe-west2-c,europe-west3-c,europe-west4-a,europe-west6-a,northamerica-northeast1-a,northamerica-northeast2-a,southamerica-east1-b,us-central1-c,us-east1-b,us-east4-c,us-west1-b,us-west2-a,us-west3-a,us-west4-a]
+      machine_type: [n1-standard-2]
+  flags:
+    cloud: GCP
+    gce_network_tier: premium
+    bigquery_table: <dataset>.<table>
+    bq_project: <my_project>
+    tcp_max_receive_buffer: 500000000
+    tcp_max_send_buffer: 500000000
+    ip_addresses: BOTH
+    network_enable_BBR: True
+    os_type: ubuntu1804
+    mtu: 1500
+    iperf_runtime_in_seconds: 30
+    iperf_sending_thread_count: 1,4,32
